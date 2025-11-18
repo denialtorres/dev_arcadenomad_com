@@ -53,7 +53,7 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
   gem "rspec-rails"
   gem "pry"
-  gem "factory_bot"
+  gem "factory_bot_rails"
   gem "database_cleaner"
 end
 
