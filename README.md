@@ -38,3 +38,8 @@ to access to the rails console
 ```shell
 docker-compose exec app rails c
 ```
+
+connect to the CLI of the postgresql container 
+```shell
+docker-compose exec postgres psql -U postgres -d dev_arcadenomad_com_development
+```
