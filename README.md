@@ -1,24 +1,40 @@
-# README
+## How to mount the project
+### Docker
+To mount the project inside the main folder:
+run
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```shell
+docker-compose up --build
+```
 
-Things you may want to cover:
+For run the migrations
+```shell
+ docker-compose exec app rails db:migrate
+```
+Run the seed files
 
-* Ruby version
+```shell
+docker-compose exec app rails db:seed
+```
 
-* System dependencies
+to run the server
+```shell
+docker-compose exec app rails server -b 0.0.0.0
+```
 
-* Configuration
+to run the tests
+```shell
+docker-compose exec app /bin/bash
+rails db:environment:set RAILS_ENV=test
+RAILS_ENV=test bundle exec rspec
+```
 
-* Database creation
+access to the shell
+```shell
+docker-compose exec app /bin/bash
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+to access to the rails console
+```shell
+docker-compose exec app rails c
+```
