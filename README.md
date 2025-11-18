@@ -26,7 +26,7 @@ to run the tests
 ```shell
 docker-compose exec app /bin/bash
 rails db:environment:set RAILS_ENV=test
-RAILS_ENV=test bundle exec rspec
+RAILS_ENV=test bundle exec rspec -fd
 ```
 
 access to the shell
