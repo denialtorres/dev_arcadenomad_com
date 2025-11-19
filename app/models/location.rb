@@ -1,6 +1,11 @@
 class Location < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
+  validates :zip, numericality: { only_integer: true }
+  validates :rating, numericality: {
+    greater_than_or_equal_to: 0.0,
+    less_than_or_equal_to: 5.0
+  }
 
   after_create :log_location
   before_validation :normalize_telephone
