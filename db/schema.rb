@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_11_19_182429) do
+ActiveRecord::Schema[8.1].define(version: 2025_11_19_203811) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -34,6 +34,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_11_19_182429) do
     t.decimal "latitude", precision: 15, scale: 10, default: "0.0"
     t.decimal "longitude", precision: 15, scale: 10, default: "0.0"
     t.string "name"
+    t.decimal "rating", precision: 2, scale: 1, default: "0.0"
     t.string "state"
     t.string "street"
     t.string "telephone", limit: 10
