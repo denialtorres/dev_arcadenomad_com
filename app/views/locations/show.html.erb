@@ -1,0 +1,39 @@
+<p style="color: green"><%= notice %></p>
+
+<h1><%= @location.name %></h1>
+
+<div>
+  <strong>Description:</strong>
+  <p><%= @location.description %></p>
+</div>
+
+<div>
+  <strong>Address:</strong>
+
+  <p>
+    <%= @location.street %><br>
+    <%= @location.city %>
+    ,
+    <%= @location.state %>
+    <%= @location.zip %>
+  </p>
+</div>
+
+<div>
+  <strong>Telephone:</strong>
+  <p><%= @location.telephone %></p>
+</div>
+
+<div>
+  <strong>Coordinates:</strong>
+
+  <p>
+    Latitude: <%= @location.latitude %>, Longitude: <%= @location.longitude %>
+  </p>
+</div>
+
+<div>
+  <%= link_to "Edit this location", edit_location_path(@location) %> |
+  <%= link_to "Back to locations", locations_path %>
+  <%= button_to "Destroy this location", @location, method: :delete %>
+</div>
