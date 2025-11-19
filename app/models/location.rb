@@ -8,7 +8,7 @@ class Location < ApplicationRecord
                                                    too_short: "An Location description must consist of at least 10 characters",
                                                    too_long: "We appreciate your candor hovewer please limit the description to 200 characters or less"
                                                   }
-  validates :zip, numericality: { only_integer: true }, zip: true
+  validates :zip, presence: { message: "A zip code is required" }, zip: true
   validates :rating, numericality: {
     greater_than_or_equal_to: 0.0,
     less_than_or_equal_to: 5.0
