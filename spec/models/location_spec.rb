@@ -33,4 +33,12 @@ RSpec.describe Location, type: :model do
 
     expect(location.address).to eq('254 South Fourth Street Columbus, Ohio 43215')
   end
+
+  it "logs location creation after creating a new location" do
+    location = build(:location, name: "Test Arcade")
+
+    expect(Rails.logger).to receive(:info).with(/New location \d+ - Test Arcade created/)
+
+    location.save!
+  end
 end
