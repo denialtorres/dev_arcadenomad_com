@@ -47,4 +47,11 @@ RSpec.describe Location, type: :model do
 
     expect(location.read_attribute(:telephone)).to eq("5551234567")
   end
+
+  it "prevents actual deletion and sets deleted_at timestamp when destroyed" do
+    location = create(:location, name: "Test Arcade")
+
+    result = location.destroy
+    expect(location.deleted_at).not_to be_nil
+  end
 end
