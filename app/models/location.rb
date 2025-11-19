@@ -1,4 +1,7 @@
 class Location < ApplicationRecord
+  validates :name, presence: true
+  validates :description, presence: true
+
   after_create :log_location
   before_validation :normalize_telephone
 
