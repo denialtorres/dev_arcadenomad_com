@@ -1,12 +1,7 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+
+State.destroy_all
+Game.destroy_all
+
 State.create([
   { name: 'Alabama', abbreviation: 'AL' },
   { name: 'Alaska', abbreviation: 'AK' },
@@ -60,3 +55,13 @@ State.create([
   { name: 'Wisconsin', abbreviation: 'WI' },
   { name: 'Wyoming', abbreviation: 'WY' }
 ])
+
+
+# Fill the games
+games_data = YAML.load_file(Rails.root.join('db/seeds/games_list.yml'))
+
+games_data.each do |game|
+  new_game = Game.find_or_create_by(name: game['game'])
+  new_game.release_date= game['year']
+  new_game.save
+end
