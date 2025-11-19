@@ -41,4 +41,10 @@ RSpec.describe Location, type: :model do
 
     location.save!
   end
+
+  it "normalizes telephone numbers by removing non-numeric characters" do
+    location = create(:location, telephone: "(555) 123-4567")
+
+    expect(location.read_attribute(:telephone)).to eq("5551234567")
+  end
 end
