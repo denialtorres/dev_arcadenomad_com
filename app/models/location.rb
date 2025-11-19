@@ -1,5 +1,8 @@
 class Location < ApplicationRecord
-  validates :name, presence: true
+  validates :name,
+    presence: { message: "Please Identify the arcade by name." },
+    uniqueness: { message: "An arcade by this name already exists." }
+
   validates :description, presence: true, length: {
                                                    in: 10..200,
                                                    too_short: "An Location description must consist of at least 10 characters",
